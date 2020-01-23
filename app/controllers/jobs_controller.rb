@@ -26,6 +26,11 @@ class JobsController < ApplicationController
         render :json => @job
     end 
 
+    def destroy
+        @job = Job.find(params[:id])
+        @job.destroy
+    end
+
     private 
     def job_params
         params.require(:job).permit(:title, :description, :status, :rating, :application_date, :source, :user_id)
