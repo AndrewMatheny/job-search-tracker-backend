@@ -22,13 +22,13 @@ class JobsController < ApplicationController
 
     def update 
         @job = Job.find(params[:id])
-        @job.update(rating: params[:job][:rating], status: params[:job][:status], description: params[:job][:description])
+        @job.update(job_params)
         render :json => @job
     end 
 
     def destroy
         @job = Job.find(params[:id])
-        @job.destroy
+        @job.delete
     end
 
     private 
